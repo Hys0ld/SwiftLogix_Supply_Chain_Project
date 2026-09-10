@@ -174,27 +174,7 @@ These tables provide additional information about:
 
 ---
 
-## 6. Data Model
-
-```text
-                    ┌─────────────────────┐
-                    │  dim_hazard_type    │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-┌──────────────────┐    ┌─────────────────────┐
-│ dim_warehouse_hub│───►│ fact_active_hazards  │
-└──────────────────┘    └──────────┬──────────┘
-                                   │
-                                   ▼
-                         ┌─────────────────────┐
-                         │dim_same_code_location│
-                         └─────────────────────┘
-```
-
----
-
-## 7. API Fault Tolerance
+## 6. API Fault Tolerance
 
 The API request includes basic fault tolerance.
 
@@ -210,7 +190,7 @@ If the API continues to fail, the Databricks notebook exits with a failure messa
 
 ---
 
-## 8. Technologies
+## 7. Technologies
 
 * Databricks
 * PySpark
@@ -224,39 +204,3 @@ If the API continues to fail, the Databricks notebook exits with a failure messa
 
 ---
 
-## 9. Final Databricks Structure
-
-```text
-bronze
-└── swiftlogix
-    └── bronze_weather
-
-silver
-└── swiftlogix
-    └── silver_weather
-
-gold
-└── swiftlogix
-    ├── fact_active_hazards
-    ├── dim_hazard_type
-    ├── dim_warehouse_hub
-    └── dim_same_code_location
-```
-
----
-
-## 10. Project Goal
-
-The goal of this project is to demonstrate how an external API can be integrated into a Databricks data pipeline and transformed into structured data for analytics.
-
-The project demonstrates:
-
-* API ingestion
-* API fault tolerance
-* Raw data storage
-* JSON processing
-* Data cleaning
-* Geographic enrichment
-* Fact and dimension tables
-* Delta Lake
-* Medallion Architecture
